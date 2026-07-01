@@ -1,5 +1,5 @@
 ---
-title: "Fill course basic information"
+title: "FAQ"
 order: 2
 chapter: 1
 section: 2
