@@ -5,7 +5,7 @@
 #> homework_number = "1"
 #> order = "2.5"
 #> title = "sample homework"
-#> tags = ["module2", "track_julia", "track_material", "homeworks", "pluto", "PlutoTeachingTools"]
+#> tags = ["module4", "track_julia", "track_material", "homeworks", "pluto", "PlutoTeachingTools"]
 #> layout = "layout.jlhtml"
 #> description = "sample howework"
 
