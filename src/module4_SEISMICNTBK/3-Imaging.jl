@@ -6,7 +6,7 @@
 #> section = 4
 #> order = 5
 #> image = "https://github.com/quentingageclark-a11y/research_3/blob/main/src/assets/imagesandgifs/julia00im.png?raw=true"
-#> title = "Who is Julia?"
+#> title = "Imaging"
 #> tags = ["module4", "track_julia", "track_material", "Pluto", "PlutoUI"]
 #> layout = "layout.jlhtml"
 
