@@ -51,7 +51,7 @@ jobs:
                   notebooks = [
                     "src/module1_FAQ",           # Replace with your actual file paths
                     "src/module2_GEOBKG", 
-                    "src/module3_syllabus"
+                    "src/module3_syllabus", 
                     "src/module4_SEISMICNTBK",  # Ensure these point to the .jl files
                     "src/mod5",
                     "src/homework"
