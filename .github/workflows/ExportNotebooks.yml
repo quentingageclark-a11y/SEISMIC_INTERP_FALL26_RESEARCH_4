@@ -54,8 +54,7 @@ jobs:
                     "src/module3_syllabus"
                     "src/module4_SEISMICNTBK",  # Ensure these point to the .jl files
                     "src/mod5",
-                    "src/homework",
-                    # ... add all 5 paths here
+                    "src/homework"
                   ];
                   
                   # Use recursive=false to prevent it from scanning for other "junk" notebooks
