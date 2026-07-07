@@ -46,8 +46,8 @@ jobs:
                 julia --project=pluto-deployment-environment -e '
                   import Pkg; Pkg.instantiate(); 
                   using PlutoPages; 
-                  # This tells PlutoPages to look only inside your "src" folder
-                  PlutoPages.generate("src") 
+                  # Point to the current directory
+                  PlutoPages.generate(".") 
                 '
 
             
