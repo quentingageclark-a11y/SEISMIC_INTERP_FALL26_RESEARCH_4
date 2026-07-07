@@ -14,8 +14,6 @@ concurrency:
 jobs:
     build-and-deploy:
         runs-on: ubuntu-latest
-        permissions:
-            contents: write
         steps:
             - name: Checkout
               uses: actions/checkout@v4
@@ -42,21 +40,17 @@ jobs:
                     ${{ runner.os }}-dotjulia-v1-${{ hashFiles('**/Project.toml', '**/Manifest.toml') }}
 
             - name: 🪴 Generate site
-              run: |
-                julia --project=pluto-deployment-environment -e '
-                  import Pkg; Pkg.instantiate(); 
-                  using PlutoPages; 
-                  # This uses the specific keyword argument to set the input directory
-                  # to the current folder, while avoiding the recursive bloat 
-                  # by explicitly defining the target.
-                  PlutoPages.generate(input_dir=".") 
-                '
+              run: julia --project=pluto-deployment-environment -e '
+                  import Pkg;
+                  Pkg.instantiate();
+                  using PlutoPages;
+                  PlutoPages.generate(pwd())'
 
             
             - uses: actions/upload-artifact@v7
               if: always()
               with:
-                path: /tmp/*_generation_report.html
+                path: generation_report.html
 
             - name: 🚀 Deploy to GitHub Pages (main)
               if: github.event_name == 'push' && github.ref == 'refs/heads/main'
@@ -68,9 +62,10 @@ jobs:
                     previews/*
 
             - name: Deploy PR preview
-              if: github.event_name == 'pull_request' && github.repository == github.event.pull_request.head.repo.full_name
-              uses: JamesIves/github-pages-deploy-action@v4
+              if: github.event_name == 'pull_request' && github.repository == github.event.pull_request.head.repo.full_name # if this build is a PR build and the PR is NOT from a fork
+              uses: JamesIves/github-pages-deploy-action@releases/v3
               with:
-                  branch: gh-pages
-                  folder: _site
-                  target-folder: "previews/PR${{ github.event.number }}"
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+                  BRANCH: gh-pages
+                  FOLDER: _site
+                  TARGET_FOLDER: "previews/PR${{ github.event.number }}" # The website preview is going to be stored in the previews subfolder
