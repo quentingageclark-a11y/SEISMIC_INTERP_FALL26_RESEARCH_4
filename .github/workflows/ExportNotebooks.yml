@@ -49,9 +49,12 @@ jobs:
                   
                   # Explicitly list your 5 notebook files
                   notebooks = [
-                    "src/module1_FAQ/faq.jl",           # Replace with your actual file paths
-                    "src/module4_SEISMICNTBK/main.jl",  # Ensure these point to the .jl files
-                    "src/homework/hw.jl",
+                    "src/module1_FAQ",           # Replace with your actual file paths
+                    "src/module2_GEOBKG", 
+                    "module3_syllabus"
+                    "src/module4_SEISMICNTBK",  # Ensure these point to the .jl files
+                    "src/mod5",
+                    "src/homework",
                     # ... add all 5 paths here
                   ];
                   
