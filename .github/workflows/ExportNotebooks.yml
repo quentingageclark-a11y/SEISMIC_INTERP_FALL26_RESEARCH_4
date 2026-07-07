@@ -46,19 +46,7 @@ jobs:
                 julia --project=pluto-deployment-environment -e '
                   import Pkg; Pkg.instantiate(); 
                   using PlutoPages; 
-                  
-                  # Explicitly list your 5 notebook files
-                  notebooks = [
-                    "src/module1_FAQ",           # Replace with your actual file paths
-                    "src/module2_GEOBKG", 
-                    "src/module3_syllabus", 
-                    "src/module4_SEISMICNTBK",  # Ensure these point to the .jl files
-                    "src/mod5",
-                    "src/homework"
-                  ];
-                  
-                  # Use recursive=false to prevent it from scanning for other "junk" notebooks
-                  PlutoPages.generate(notebooks) 
+                  PlutoPages.generate(pwd()) 
                 '
 
             
