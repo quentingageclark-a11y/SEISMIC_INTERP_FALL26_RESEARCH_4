@@ -46,7 +46,10 @@ jobs:
                 julia --project=pluto-deployment-environment -e '
                   import Pkg; Pkg.instantiate(); 
                   using PlutoPages; 
-                  PlutoPages.generate(pwd()) 
+                  # This uses the specific keyword argument to set the input directory
+                  # to the current folder, while avoiding the recursive bloat 
+                  # by explicitly defining the target.
+                  PlutoPages.generate(input_dir=".") 
                 '
 
             
