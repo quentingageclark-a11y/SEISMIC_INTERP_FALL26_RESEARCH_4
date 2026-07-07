@@ -59,7 +59,7 @@ jobs:
                   ];
                   
                   # Use recursive=false to prevent it from scanning for other "junk" notebooks
-                  PlutoPages.generate(notebooks; recursive=false) 
+                  PlutoPages.generate(notebooks) 
                 '
 
             
