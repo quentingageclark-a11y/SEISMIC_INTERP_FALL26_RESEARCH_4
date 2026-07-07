@@ -42,11 +42,13 @@ jobs:
                     ${{ runner.os }}-dotjulia-v1-${{ hashFiles('**/Project.toml', '**/Manifest.toml') }}
 
             - name: 🪴 Generate site
-              run: julia --project=pluto-deployment-environment -e '
-                  import Pkg;
-                  Pkg.instantiate();
-                  using PlutoPages;
-                  PlutoPages.generate(pwd())'
+              run: |
+                julia --project=pluto-deployment-environment -e '
+                  import Pkg; Pkg.instantiate(); 
+                  using PlutoPages; 
+                  # This tells PlutoPages to look only inside your "src" folder
+                  PlutoPages.generate("src") 
+                '
 
             
             - uses: actions/upload-artifact@v7
